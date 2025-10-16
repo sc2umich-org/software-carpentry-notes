@@ -1,0 +1,71 @@
+---
+title: "A UN Report on Relationship Between GDP and Life Expectancy"
+author: "Moses Mutua"
+output: html_document
+date: "2025-10-14"
+---
+
+```{r packages, include=FALSE}
+library(tidyverse)
+library(knitr)
+```
+
+# Introduction
+
+Lorem ipsum, text example for this space including current text.
+
+```{r data, include=FALSE}
+gapminder_1997 <- 
+  read.csv("gapminder_1997.csv")
+
+nCountries <- gapminder_1997 %>%
+  select(country) %>%
+  n_distinct()
+
+minGDP <- gapminder_1997 %>%
+  summarize(round(min(gdpPercap))) %>%
+  pull()
+
+maxGDP <- gapminder_1997 %>%
+  summarize(round(max(gdpPercap))) %>%
+  pull()
+
+```
+### Summary
+The above plot shows the relationship between GDP per capita and life expectancy for a total of `r nCountries` countries. For this set of countries, economic wealth ranged from a minimum of USD `r minGDP` to a maximum of `r maxGDP`per capita.
+
+|Summary of Data|
+|----------|----------|
+|Number of Countries|`r nCountries`|
+|Minimum GDP per capita|`r minGDP`|
+|Maximum GDP per capita| `r maxGDP`|
+
+# Data
+
+```{r tables, echo=FALSE}
+gapminder_1997 %>%
+  filter(continent == "Americas") %>%
+  kable()
+
+```
+
+
+```{r gdp_lifeexp_1997, echo=FALSE}
+ggplot(data = gapminder_1997) +
+  aes(x = gdpPercap,
+      y = lifeExp,
+      color = continent,
+      size = pop/1000000) +
+  geom_point() +
+  labs(x = "GDP per Capita",
+       y = "Life Expectancy",
+       title = "Do people in wealthy countries live longer?",
+       size = "Population (millions)")
+```
+
+
+1. **MATLAB**
+2. *ggplot*
+3. ***Mathematical modeling***
+4. <a href="https://gist.github.com/musleh0001/e3811443d5c793f1a8d5691e888d9632">[Markdown Cheat Sheet] #Markdown</a>
+5. [[Markdown Cheat Sheet] #Markdown](https://gist.github.com/musleh0001/e3811443d5c793f1a8d5691e888d9632)

@@ -1,0 +1,54 @@
+Bash tutorial
+
+pwd = present/printing working directory
+ls = list (of files)
+-# = a flag (used to specify how a command works), you can stack flags on one dash or use a separate dash for each
+man - the manual command, used to give you syntax, etc. information about a command, including itself (ex. man man)
+cd = change directory 
+  flags (no dash)
+    no flag - takes you to your usr directory
+    ~ - takes you to your usr directory
+    .. - up a folder/directory
+    / - root directory
+  * cd looks down the file path, this means you cannot specifcy a directory that is above the current one, you must use cd ..
+    
+  You can also use a single (.). This tells the command to look in the current directory. For ls, .. will list the files/folders in the directory above your current.
+
+press q to quit out of command outputs like man or less
+  
+  
+Absolute and relative paths
+An absolute path includes all the directories from the lowest to highest
+A relative path just includes the directories from the current directory
+  
+  
+Task:
+Create 3 folders: code, data, and figures
+command: mkdir - make directory
+  you can't use spaces, special characters (except _ and -) or - at the start of the name
+  if you are using a command that is targetting a file/folder with a space, use quotes around the file/folder      name
+
+command: mv - move (item/file)
+
+Want to copy a file?
+command: cp = copy (item/file)
+
+Delete a file?
+command: rm = remove (item/file)
+  !!Permanently deletes the target item!!
+  Will not ask to confirm action.
+
+Task:
+create a data directory and move .csv files into it
+mkdir data
+mv co2-un-data.csv gapminder_1997.csv gapminder_co2.csv gapminder_data.csv rnd-un-data.csv data
+  You can either move each file individually, in one line as shown above or use the wildcard.
+    * = wildcard (Everything)
+      Ex. *csv (Everything ending with csv)
+      mv *csv data
+      You can also use the wildcard around something that you want to look for
+        Ex. \*ane\* (Everything that has "ane" somewhere within it's name)
+        
+less - look but don't edit
+
+nano - edit files

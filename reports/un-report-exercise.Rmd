@@ -1,0 +1,71 @@
+---
+title: "un-report-exercise"
+author: "Moses Mutua"
+date: "2025-10-14"
+output: html_document
+---
+
+```{r libraries and data, include=FALSE}
+library(tidyverse)
+library(knitr)
+
+gapminder_data <- read.csv("gapminder_data.csv")
+```
+## Plot 1: Year vs. Population
+
+```{r year vs. population scatter plot, echo=FALSE}
+ggplot(gapminder_data) +
+  aes(x = year,
+      y = pop/1000000,
+      color = continent) +
+  labs(x = "Year",
+       y = "Population (Millions)",
+       title = "Year vs. Population") +
+  geom_point() +
+  facet_wrap(vars(continent))
+```
+
+There are two outlier countries in the continent of Asia that compress the data points. The next plot will not include these countries to help with visualization.
+
+```{r outlier countries, include=FALSE}
+outlier1pop <-
+  gapminder_data %>%
+  summarize(maxPop = max(pop)) %>%
+  pull()
+
+outlier1 <-
+  gapminder_data %>%
+  filter(pop == outlier1pop) %>%
+  select(country) %>%
+  pull()
+
+outlier2pop <-
+  gapminder_data %>%
+  filter(country != "China") %>%
+  summarize(maxPop = max(pop)) %>%
+  pull()
+  
+outlier2 <-
+  gapminder_data %>%
+  filter(pop == outlier2pop) %>%
+  select(country) %>%
+  pull()
+
+```
+The outliers are *`r outlier1`* and *`r outlier2`*.
+
+## Plot 2: Year vs. Population w/o `r outlier1` and `r outlier2`
+
+```{r year vs. population plot w/o 2 outliers, echo=FALSE}
+gapminder_data %>%
+  filter(country != outlier1 & country != outlier2) %>%
+  ggplot() +
+    aes(x = year,
+        y = pop/1000000,
+        color = continent) +
+    labs(title = "Year vs. Population without Outliers",
+        x = "Year",
+        y = "Population (Millions)") +
+    geom_point() +
+    facet_wrap(vars(continent))
+```

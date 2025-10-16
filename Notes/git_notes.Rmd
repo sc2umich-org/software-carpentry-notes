@@ -1,0 +1,126 @@
+---
+title: "git notes"
+author: "Moses Mutua"
+date: "2025-10-14"
+output: html_document
+---
+
+Git/Github
+
+Used to push and pull local files into the 
+
+Version control is in applications you have used before,
+  MS Word, Google Docs
+    These applications allow you to see changes as well as when they happened, to your documents
+  Ctrl + Z is another form of version control, reversing the last action
+
+Git is like this but on sterois
+
+Branches
+  These are additions to a main "project", there can be multiple branches on a project and there are mechanisms to  combine branches as well as mechanisms or features to address conflicts
+  
+  
+One-time configurations
+    When we start up git, we must type git and set up your user information
+      git config --global user.name "Your name goes here"
+        global means that you won't have to set your user information for every project you make on your account on your device
+      if you type git and you get an error, you do not have git installed, refer to the installation instructions from the carpentry guide
+      git config --global user.email "Your email goes here"
+      
+  If you want to check your configurations:
+    git config --list
+    
+    
+  Line endings
+    For different operating systems, there are multple ways to mark the end ofa line so depending on your operating system, you must set the line ending
+      Mac/Linux
+        git config --global core.autocrlf input
+      Windows
+        git config --global core.autocrlf true
+        
+  * Extra note, - is used for single characters and -- is used for words
+  
+  Default text editor
+    git config --global core.editor "nano -w"
+    
+  Default branch name
+    git config --global init.defaultBranch main
+      This is a setting that is due to the historical context of the default branch being called master originally, it's recommended to rename it to main.
+      
+  Credential storage
+    git config --global credential.helper store
+    
+Now your are done with configurations
+
+
+From here you can try running git status in the un-report (or your project) directory
+You should get an error since your directory is not a repository
+To make your directory a repository, you must use:
+  git init
+  
+This will make a hidden folder 
+  .git
+To see it, use:
+  ls -a
+
+You can use 
+  .git 
+to look inside the folder, this is just for curiosity, you don't need to do this again
+
+Now type git status. It will let you know you haven't committed anything yet.
+
+Coinciding with the slides*
+  Imagine the staging area as a snapshot of your current files that are selected, using:
+    git add [file_1] [file_2] [file_...]
+  The purpose of this is to make your snapshots more meaningful. This allows you go group different sets of changes so you can label/message them seperately, instead of one big commit without having the ability to separate their purpose/messages,
+  
+After this, we can commit the changes:
+  git commit -m "message here"
+    -m specifies a message that you will add to your commit
+      typically, for the first commit, one might write:
+        "First commit."
+  It's recommended to always include a short message with your commits
+
+Try using git status again now
+
+Let's say you want to add another file, a read me file:
+  Start with:
+    nano README.md
+      We named the file that would be created by typing it after. .md is a markdown file type
+  Type in what you want
+  Use this to save the file:
+    ctrl + o
+    enter
+  Then to exit:
+    ctrl + x
+  Now you can repeat the staging and committing steps from before for this file  
+  
+Now lets make a change and commit it
+  Fire up nano again:
+    nano README.md
+      add a line
+    ctrl + o
+    ctrl + x
+  You can check your addition with:
+    less README.md
+  To check the changes, use:
+    git diff  
+  Now stage and commit this change with a message
+    In your messages try to summarize what you did/tried to do. Try not to write what would be given with the git diff command.
+    
+To check all your previous commits (most recent on top), use:
+  git log
+    You can use 
+      -[number]
+    to specify the amount of commits you want to show.
+    For conciseness you can use:
+      --oneline
+        This just shows the messages, without the author, time, etc. information.
+        
+Follow the instructions on the slides [git instruction slides](https://frfeng.github.io/git-intro-slides/#/create-repository-in-github) to "push" your commits to github, where you have your repos on the cloud.
+
+To push things to your repo, you need a token.
+This essentially like a password that locks the ability to push to a repo except when you use it. Follow instructions on how to do this.
+
+The changes made to file will show/work only for files that are plain text type based. 
+    
