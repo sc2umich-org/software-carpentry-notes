@@ -1,0 +1,20 @@
+The following are curriculum links as well as cheat sheets:
+
+
+
+Software Carpentry Workshop Links:
+
+Main Page:
+https://umcarpentries.org/2025-10-13-UMich/
+
+Curriculum:
+https://umcarpentries.org/intro-curriculum-r/
+
+Etherpad (a shared document with some extra stuff):
+https://pad.carpentries.org/2025-10-13-umich
+
+Markdown Cheat Sheet:
+https://gist.github.com/musleh0001/e3811443d5c793f1a8d5691e888d9632
+
+Color Brewer (A website for good colormaps for your graphics):
+https://colorbrewer2.org/#type=qualitative&scheme=Dark2&n=3
