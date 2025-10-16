@@ -18,3 +18,11 @@ https://gist.github.com/musleh0001/e3811443d5c793f1a8d5691e888d9632
 
 Color Brewer (A website for good colormaps for your graphics):
 https://colorbrewer2.org/#type=qualitative&scheme=Dark2&n=3
+
+
+From the follow up email:
+
+
+-If you'd like to receive notifications about upcoming workshops, you can get on the direct mailing list for workshop announcements here: https://mcommunity.umich.edu/group/Software%20Carpentry%20Updates.
+
+-If you're curious about getting involved with the campus Carpentries group on the instruction side, please join our mailing list: https://mcommunity.umich.edu/group/UM%20Software%20Carpentry. Many of our helpers and instructors started out as workshop attendees!
